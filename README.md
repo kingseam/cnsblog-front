@@ -1,6 +1,8 @@
-change workdirectory cns-front
+*change workdirectory cns-front
+<br/>
 
-npm install
-npm run dev 
-
-NaviBar.vue -> Logo title fix;
+*npm install
+<br/>
+*npm run dev 
+<br/>
+*NaviBar.vue -> Logo title fix;
