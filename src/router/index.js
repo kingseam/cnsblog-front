@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from 'components/Hello.vue'
+import Test from 'components/Test.vue'
 import Sample from 'components/Sample.vue'
 import DashboardV1 from 'examples/Dashboard.v1.vue'
 import DashboardV2 from 'examples/Dashboard.v2.vue'
@@ -32,6 +33,11 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
+    },
+    {
+      path: '/test',
+      name: 'Test',
+      component: Test
     },
     {
       path: '/sample',
