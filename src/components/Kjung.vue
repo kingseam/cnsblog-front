@@ -16,7 +16,7 @@
     <button v-on:click="alert" v-bind:disabled="isButtonDisabled">Alert</button>
 
     <p>hi, I write this word on practice-rebase branch</p>
-
+    <p>after rebase master onto practice-rebase branch, add more sentence.</p>
     <br>
 
     <p>양방향 바인딩 : {{msg}}</p>
