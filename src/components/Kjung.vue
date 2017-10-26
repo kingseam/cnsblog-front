@@ -3,7 +3,7 @@
 
     <h3>Rebase 를 사용해보자. Hoy! 22</h3>
 
-    <h5>master에서 추가한 문구</h5>
+    <h5>master에서 추가한 문구 1</h5>
 
 
     <ul>
