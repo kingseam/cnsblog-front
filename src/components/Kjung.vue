@@ -6,7 +6,7 @@
     <h5>master에서 추가한 문구 1</h5>
 
 
-    <p>hi, I write this word on master branch</p>
+    <p>hi, I write this word on master branch!!</p>
 
     <ul>
       <li v-for="(item, index) in list" v-if="item.text">
