@@ -1,7 +1,7 @@
 <template xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
   <div id="app">
 
-    <h3>Rebase 를 사용해보자. Hoy! 22</h3>
+    <h3>Rebase 를 사용해보자. Hoy! 22s</h3>
 
     <h5>master에서 추가한 문구 1</h5>
 
