@@ -5,7 +5,7 @@
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>A</b>LT</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>CNS</b>BLOG</span>
+      <span class="logo-lg"><b>CNS</b>BLOG 배포잘되니?</span>
     </a>
 
     <!-- Header Navbar: style can be found in header.less -->
