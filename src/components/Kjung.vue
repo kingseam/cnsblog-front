@@ -5,6 +5,7 @@
 
     <h5>master에서 추가한 문구</h5>
 
+
     <ul>
       <li v-for="(item, index) in list" v-if="item.text">
         {{index}} - {{item.text}} :: true 인것만 표시
