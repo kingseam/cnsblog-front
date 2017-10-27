@@ -119,8 +119,8 @@ module.exports = [
     ]
   },
   {
-    type: 'tree',
-    icon: 'fa fa-files-o',
+    type: 'item',
+    icon: 'fa fa-th',
     name: 'Test',
     badge: {
         type: 'String',
@@ -131,8 +131,8 @@ module.exports = [
     }
   },
   {
-    type: 'tree',
-    icon: 'fa fa-files-o',
+    type: 'item',
+    icon: 'fa fa-th',
     name: 'kjung',
     badge: {
         type: 'String',
