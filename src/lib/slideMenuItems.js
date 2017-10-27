@@ -119,6 +119,30 @@ module.exports = [
     ]
   },
   {
+    type: 'tree',
+    icon: 'fa fa-files-o',
+    name: 'Test',
+    badge: {
+        type: 'String',
+        data: 'new'
+    },
+    router: {
+        name: 'Test'
+    }
+  },
+  {
+    type: 'tree',
+    icon: 'fa fa-files-o',
+    name: 'kjung',
+    badge: {
+        type: 'String',
+        data: 'new'
+    },
+    router: {
+        name: 'kjung'
+    }
+  },
+  {
     type: 'item',
     icon: 'fa fa-th',
     name: 'Widgets',
@@ -143,6 +167,14 @@ module.exports = [
           name: 'General'
         }
       },
+      {
+          type: 'item',
+          icon: 'fa fa-circle-o',
+          name: 'General',
+          router: {
+            name: 'General'
+          }
+        },
       {
         type: 'item',
         icon: 'fa fa-circle-o',
