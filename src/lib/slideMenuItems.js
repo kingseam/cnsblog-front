@@ -144,14 +144,6 @@ module.exports = [
         }
       },
       {
-          type: 'item',
-          icon: 'fa fa-circle-o',
-          name: 'General',
-          router: {
-            name: 'General'
-          }
-        },
-      {
         type: 'item',
         icon: 'fa fa-circle-o',
         name: 'Icons',
