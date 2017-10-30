@@ -5,6 +5,7 @@ import Test from 'components/Test.vue'
 import Kjung from 'components/Kjung.vue'
 import Sample from 'components/Sample.vue'
 import Login from 'components/Login.vue'
+import Register from 'components/Register.vue'
 import DashboardV1 from 'examples/Dashboard.v1.vue'
 import DashboardV2 from 'examples/Dashboard.v2.vue'
 import InfoBoxExample from 'examples/InfoBoxExample'
@@ -132,9 +133,14 @@ export default new Router({
       component: AdvancedElements
     },
     {
-      path: '/Login',
+      path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: Register
     }
   ],
   linkActiveClass: 'active'

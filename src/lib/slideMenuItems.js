@@ -145,6 +145,18 @@ module.exports = [
   {
     type: 'item',
     icon: 'fa fa-th',
+    name: 'Register',
+    badge: {
+      type: 'String',
+      data: 'new'
+    },
+    router: {
+      name: 'Register'
+    }
+  },
+  {
+    type: 'item',
+    icon: 'fa fa-th',
     name: 'kjung',
     badge: {
       type: 'String',
