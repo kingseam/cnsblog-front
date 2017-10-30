@@ -9,7 +9,7 @@
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li class="active">{{naviTitle}}</li>
       </ol>
     </section>
 
@@ -26,6 +26,12 @@
 <script>
 export default {
   name: 'va-content-wrap',
+  props: {
+    naviTitle: {
+      type: String,
+      default: 'default'
+    }
+  },
   created () {
 
   }

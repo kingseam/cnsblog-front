@@ -133,6 +133,18 @@ module.exports = [
   {
     type: 'item',
     icon: 'fa fa-th',
+    name: 'Login',
+    badge: {
+      type: 'String',
+      data: 'new'
+    },
+    router: {
+      name: 'Login'
+    }
+  },
+  {
+    type: 'item',
+    icon: 'fa fa-th',
     name: 'kjung',
     badge: {
       type: 'String',
