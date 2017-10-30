@@ -83,7 +83,7 @@ export default {
       if (this.isHeader) {
         return 'header'
       }
-      return this.type === 'item' ? '' : 'treeview'
+      return this.type === 'item' ? '' : 'treeview active'
     }
   }
 }
