@@ -27,5 +27,17 @@ module.exports = [
     router: {
       name: 'Register'
     }
+  },
+  {
+    type: 'item',
+    icon: 'fa fa-th',
+    name: 'Api Test_axios',
+    badge: {
+      type: 'String',
+      data: 'new'
+    },
+    router: {
+      name: 'AxiosExample'
+    }
   }
 ]
