@@ -6,11 +6,12 @@
 </template>
 
 <script>
+import TestJson from '../json/test.json'
 export default {
   name: 'test',
   data () {
     return {
-      msg: '테스트'
+      msg: JSON.stringify(TestJson)
     }
   }
 }
