@@ -47,5 +47,13 @@ module.exports = [
     router: {
       name: 'editor'
     }
+  },
+  {
+    type: 'item',
+    icon: 'fa fa-th',
+    name: 'BoardList',
+    router: {
+      name: 'board'
+    }
   }
 ]

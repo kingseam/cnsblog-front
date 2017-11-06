@@ -7,7 +7,7 @@ function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-module.exports = {
+module.exports = {  
   entry: {
     app: './src/main.js'
   },
@@ -25,6 +25,7 @@ module.exports = {
       resolve('node_modules')
     ],
     alias: {
+      'va': 'cns-front/src',
       'vue$': 'vue/dist/vue.common.js',
       'src': resolve('src'),
       'assets': resolve('src/assets'),

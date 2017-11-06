@@ -7,6 +7,7 @@ import Sample from 'components/Sample.vue'
 import Login from 'components/Login.vue'
 import Register from 'components/Register.vue'
 import Editor from 'components/Editor.vue'
+import BoardList from 'components/BoardList.vue'
 import AxiosExample from 'components/AxiosExample.vue'
 import DashboardV1 from 'examples/Dashboard.v1.vue'
 import DashboardV2 from 'examples/Dashboard.v2.vue'
@@ -58,6 +59,11 @@ export default new Router({
       path: '/sample',
       name: 'Sample',
       component: Sample
+    },
+    {
+      path: '/board',
+      name: 'board',
+      component: BoardList
     },
     {
       path: '/dashboard/v1',
