@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+// import VeeValidate from 'vee-validate'
 
 import * as actions from './actions'
 import * as getters from './getters'
