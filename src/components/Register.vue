@@ -1,27 +1,27 @@
 <template>
   <div class="register-box">
   <div class="register-logo">
-    <a href="/index.html"><b>Admin</b>LTE</a>
+    <a href="/index.html"><b>CNS</b>BLOG</a>
   </div>
 
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
 
-    <form action="/index.html" method="post">
+    <form @submit.prevent="onSubmit">
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" placeholder="Full name">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input v-model="user.id" type="email" class="form-control" placeholder="example@example.com" required pattern=".+@.+\..+" title="example@example.com">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input v-model="user.user_name" type="text" class="form-control" placeholder="name" required minlength="3" maxlength="20">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input v-model="user.password" type="password" class="form-control" @change="validRetypePassword" placeholder="Password" required minlength="8" v-bind="regexs.password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Retype password">
+        <input type="password" class="form-control" ref="retype_password" @keyup="validRetypePassword" placeholder="Confirm Password" required>
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">
@@ -34,28 +34,59 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+          <input type="submit" class="btn btn-primary btn-block btn-flat" value="Register"></button>
         </div>
         <!-- /.col -->
       </div>
     </form>
 
     <div class="social-auth-links text-center">
-      <p>- OR -</p>
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign up using
         Facebook</a>
       <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign up using
         Google+</a>
     </div>
 
-    <a href="login.html" class="text-center">I already have a membership</a>
+    <router-link :to="{ name: 'Login' }" class="text-center">I already have a membership</router-link>
   </div>
   <!-- /.form-box -->
 </div>
 </template>
 
 <script>
+  import { mapGetters } from 'vuex'
+  import axios from 'axios'
+
   export default {
-    name: 'Login'
+    name: 'Login',
+    data: function () {
+      return {
+        user: {}
+      }
+    },
+    methods: {
+      validRetypePassword: function () {
+        var confirmPassword = this.$refs.retype_password
+
+        if (this.user.password !== confirmPassword.value) {
+          confirmPassword.setCustomValidity('암호가 일치하지 않습니다')
+        } else {
+          confirmPassword.setCustomValidity('')
+        }
+      },
+      onSubmit: function () {
+        axios.post('http://localhost/api/sample/request', this.$data)
+          .then((response) => {
+            console.log(response)
+            Promise.resolve(response)
+          })
+          .catch((error) => Promise.reject(error))
+      }
+    },
+    computed: {
+      ...mapGetters([
+        'regexs'
+      ])
+    }
   }
 </script>
