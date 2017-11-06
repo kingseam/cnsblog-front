@@ -6,6 +6,7 @@ import Kjung from 'components/Kjung.vue'
 import Sample from 'components/Sample.vue'
 import Login from 'components/Login.vue'
 import Register from 'components/Register.vue'
+import Editor from 'components/Editor.vue'
 import AxiosExample from 'components/AxiosExample.vue'
 import DashboardV1 from 'examples/Dashboard.v1.vue'
 import DashboardV2 from 'examples/Dashboard.v2.vue'
@@ -47,6 +48,11 @@ export default new Router({
       path: '/kjung',
       name: 'kjung',
       component: Kjung
+    },
+    {
+      path: '/editor',
+      name: 'editor',
+      component: Editor
     },
     {
       path: '/sample',

@@ -39,5 +39,13 @@ module.exports = [
     router: {
       name: 'AxiosExample'
     }
+  },
+  {
+    type: 'item',
+    icon: 'fa fa-th',
+    name: 'Editor',
+    router: {
+      name: 'editor'
+    }
   }
 ]
