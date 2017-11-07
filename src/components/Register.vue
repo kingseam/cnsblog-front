@@ -9,15 +9,15 @@
 
     <form @submit.prevent="onSubmit">
       <div class="form-group has-feedback">
-        <input v-model="user.id" type="email" class="form-control" placeholder="example@example.com" required pattern=".+@.+\..+" title="example@example.com">
+        <input v-model="currentUser.id" type="email" class="form-control" placeholder="example@example.com" required pattern=".+@.+\..+" title="example@example.com">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input v-model="user.user_name" type="text" class="form-control" placeholder="name" required minlength="3" maxlength="20">
+        <input v-model="currentUser.user_name" type="text" class="form-control" placeholder="name" required minlength="3" maxlength="20">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input v-model="user.password" type="password" class="form-control" @change="validRetypePassword" placeholder="Password" required minlength="8" v-bind="regexs.password">
+        <input v-model="currentUser.password" type="password" class="form-control" @change="validRetypePassword" placeholder="Password" required minlength="8" v-bind="regexs.password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -34,7 +34,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <input type="submit" class="btn btn-primary btn-block btn-flat" value="Register"></button>
+          <input type="button" v-click="this.boardProduct()" class="btn btn-primary btn-block btn-flat" value="Register"></button>
         </div>
         <!-- /.col -->
       </div>
@@ -54,39 +54,27 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
-  import axios from 'axios'
+import { mapGetters, mapActions } from 'vuex'
 
-  export default {
-    name: 'Login',
-    data: function () {
-      return {
-        user: {}
+export default {
+  methods: {
+    validRetypePassword: function () {
+      var confirmPassword = this.$refs.retype_password
+      if (this.user.password !== confirmPassword.value) {
+        confirmPassword.setCustomValidity('암호가 일치하지 않습니다')
+      } else {
+        confirmPassword.setCustomValidity('')
       }
     },
-    methods: {
-      validRetypePassword: function () {
-        var confirmPassword = this.$refs.retype_password
-
-        if (this.user.password !== confirmPassword.value) {
-          confirmPassword.setCustomValidity('암호가 일치하지 않습니다')
-        } else {
-          confirmPassword.setCustomValidity('')
-        }
-      },
-      onSubmit: function () {
-        axios.post('http://localhost/api/sample/request', this.$data)
-          .then((response) => {
-            console.log(response)
-            Promise.resolve(response)
-          })
-          .catch((error) => Promise.reject(error))
-      }
-    },
-    computed: {
-      ...mapGetters([
-        'regexs'
-      ])
-    }
+    ...mapActions([
+      'boardProduct'
+    ])
+  },
+  computed: {
+    ...mapGetters([
+      'currentUser',
+      'regexs'
+    ])
   }
+}
 </script>

@@ -2,7 +2,8 @@ import * as types from '../mutation-types'
 
 const state = {
   main: [],
-  board: []
+  board: [],
+  user: []
 }
 
 const mutations = {
@@ -10,8 +11,11 @@ const mutations = {
     state.main = products
   },
   [types.BOARD_PRODUCT] (state, products) {
-    state.board = products.data.list
-  }
+    state.board = products.data.result
+  },
+  [types.REGIST_PRODUCT] (state, products) {
+    state.user = products.data.result
+  }  
 }
 
 export default {
