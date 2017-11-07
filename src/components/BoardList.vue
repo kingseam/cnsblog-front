@@ -24,7 +24,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr v-for="item in boardList.data.list">
+                <tr v-for="item in boardList">
                   <td>{{item.board_id}}</td>
                   <td>{{item.subject}}</td>
                   <td><span class="label label-success">{{item.user_id}}</span></td>
