@@ -1,10 +1,10 @@
 const state = {
   main: {
-    name: 'Alexander Pierce',
+    name: 'Angmagun',
     position: 'Web Developer',
     state: {
       color: '#3c763d',
-      name: 'Online'
+      name: '광코딩중'
     },
     createdAt: new Date()
   }

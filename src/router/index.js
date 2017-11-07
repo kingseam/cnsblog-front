@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from 'components/Hello.vue'
 import Test from 'components/Test.vue'
 import Kjung from 'components/Kjung.vue'
 import Sample from 'components/Sample.vue'
@@ -37,8 +36,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      name: 'board',
+      component: BoardList
     },
     {
       path: '/test',
