@@ -1,1 +1,2 @@
 export const FETCH_PRODUCT = 'FETCH_PRODUCT'
+export const BOARD_PRODUCT = 'BOARD_PRODUCT'

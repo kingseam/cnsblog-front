@@ -14,6 +14,11 @@ export default {
     return {
       content: '<h1>Some initial content</h1>'
     }
+  },
+  created () {
+    this.$bus.$on('Editor', (args) => {
+      alert(args)
+    })
   }
 }
 </script>

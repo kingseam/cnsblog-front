@@ -24,62 +24,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                  <td>1</td>
-                  <td><a href="/">자바를 아니?</a></td>
-                  <td><span class="label label-success">JAVA</span></td>
+                <tr v-for="item in boardList.data.list">
+                  <td>{{item.board_id}}</td>
+                  <td>{{item.subject}}</td>
+                  <td><span class="label label-success">{{item.user_id}}</span></td>
                   <td>
-                    <div class="sparkbar" data-color="#00a65a" data-height="20">2017-11-06</div>
+                    <div class="sparkbar" data-color="#00a65a" data-height="20">{{item.reg_date}}</div>
                   </td>
-                  <td>by angmagun</td>
-                </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                  <td>Samsung Smart TV</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#f39c12" data-height="20">vue.js 어렵다.</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                  <td>iPhone 6 Plus</td>
-                  <td><span class="label label-danger">Delivered</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#f56954" data-height="20">도데체 뭐가 뭔지.</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                  <td>Samsung Smart TV</td>
-                  <td><span class="label label-info">Processing</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#00c0ef" data-height="20">망할녀석</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="/">OR1848</a></td>
-                  <td>Samsung Smart TV</td>
-                  <td><span class="label label-warning">Pending</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                  <td>iPhone 6 Plus</td>
-                  <td><span class="label label-danger">Delivered</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                  <td>Call of Duty IV</td>
-                  <td><span class="label label-success">Shipped</span></td>
-                  <td>
-                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                  </td>
+                  <td>{{item.user_name}}</td>
                 </tr>
                 </tbody>
               </table>
@@ -98,3 +50,22 @@
       <!-- /.col -->
 
 </template>
+<script>
+import { mapGetters, mapActions } from 'vuex'
+
+export default {
+  created () {
+    this.boardProduct()
+  },
+  computed: {
+    ...mapGetters([
+      'boardList'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'boardProduct'
+    ])
+  }
+}
+</script>

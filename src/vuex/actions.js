@@ -12,3 +12,14 @@ export const fetchProduct = ({ commit }) => {
     console.error(error)
   })
 }
+
+export const boardProduct = ({ commit }) => {
+  return services.products.get('/board')
+  .then((response) => {
+    console.log(response)
+    commit(types.BOARD_PRODUCT, response.data)
+  })
+  .catch((error) => {
+    console.error(error)
+  })
+}
