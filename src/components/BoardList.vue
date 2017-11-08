@@ -24,9 +24,10 @@
                 </tr>
                 </thead>
                 <tbody>
+                
                 <tr v-for="item in boardList">
                   <td>{{item.board_id}}</td>
-                  <td>{{item.subject}}</td>
+                  <td><router-link :to="{name: 'boardDetail' , query: {id: item.board_id}}">{{item.subject}}</router-link></td>
                   <td><span class="label label-success">{{item.user_id}}</span></td>
                   <td>
                     <div class="sparkbar" data-color="#00a65a" data-height="20">{{item.reg_date}}</div>
@@ -55,7 +56,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   created () {
-    this.boardProduct()
+    this.boardProduct('')
   },
   computed: {
     ...mapGetters([

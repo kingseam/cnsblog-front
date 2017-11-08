@@ -17,12 +17,12 @@ export const fetchProduct = ({ commit }) => {
   })
 }
 
-export const boardProduct = ({ commit }) => {
-  return services.products.get('board')
+export const boardProduct = ({ commit }, id) => {
+  return services.products.get(`board/${id}`)
   .then((response) => {
     console.log(response)
     if (response.data.code.code === '0000') {
-      commit(types.BOARD_PRODUCT, response.data)
+      commit(id === '' ? types.BOARD_PRODUCT : types.BOARD_DETAIL_PRODUCT, response.data)
     } else {
       commit(types.ERROR_PRODUCT, response.data)
     }

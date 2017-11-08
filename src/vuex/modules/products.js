@@ -13,6 +13,9 @@ const mutations = {
   [types.BOARD_PRODUCT] (state, products) {
     state.board = products.data.result
   },
+  [types.BOARD_DETAIL_PRODUCT] (state, products) {
+    state.board = products.data.result
+  },
   [types.REGIST_PRODUCT] (state, products) {
     alert(`[${products.code.code}] : ${products.code.message}`)
   },
