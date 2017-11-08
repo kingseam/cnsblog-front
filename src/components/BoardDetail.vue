@@ -2,13 +2,15 @@
 <div>
     <div class="col-md-9">
           <div class="bs-docs-section">
-			  <h1 id="overview" class="page-header" v-if="boardDetail.subject != undefined">{{boardDetail.subject}}<a class="anchorjs-link" href="#overview"><span class="anchorjs-icon"></span></a></h1>
-			  <p class="lead" v-if="boardDetail.user_name != undefined">{{boardDetail.user_name}}</p>
+			  <h1 id="overview" class="page-header">{{boardDetail.subject}}<a class="anchorjs-link" href="#overview"><span class="anchorjs-icon"></span></a></h1>
+			  <p class="lead">{{boardDetail.user_name}}</p>
   		  </div>
   		  
   		  <div class="highlight">
-  		    <pre v-if="boardDetail.contents != undefined">{{boardDetail.contents}}</pre>
+  		    <pre>{{boardDetail.contents}}</pre>
   		  </div>
+  		  
+  		  <router-link :to="{name: 'board'}" class="btn btn-sm btn-info btn-flat pull-left">목록</router-link>
   	</div>
 </div>
 </template>
