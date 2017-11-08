@@ -9,15 +9,11 @@
 
     <form @submit.prevent="onSubmit">
       <div class="form-group has-feedback">
-        <input v-model="currentUser.id" type="email" class="form-control" placeholder="example@example.com" required pattern=".+@.+\..+" title="example@example.com">
+        <input v-model="user.user_name" type="email" class="form-control" placeholder="example@example.com" required pattern=".+@.+\..+" title="example@example.com">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input v-model="currentUser.user_name" type="text" class="form-control" placeholder="name" required minlength="3" maxlength="20">
-        <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
-      <div class="form-group has-feedback">
-        <input v-model="currentUser.password" type="password" class="form-control" @change="validRetypePassword" placeholder="Password" required minlength="8" v-bind="regexs.password">
+        <input v-model="user.password" type="password" class="form-control" @change="validRetypePassword" placeholder="Password" required minlength="8" v-bind="regexs.password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
@@ -34,7 +30,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <input type="button" v-click="this.boardProduct()" class="btn btn-primary btn-block btn-flat" value="Register"></button>
+          <input type="button" class="btn btn-primary btn-block btn-flat" value="Register" @click="registProduct(user)"></button>
         </div>
         <!-- /.col -->
       </div>
@@ -57,6 +53,14 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  data: function () {
+    return {
+      user: {
+        user_name: '',
+        password: ''
+      }
+    }
+  },
   methods: {
     validRetypePassword: function () {
       var confirmPassword = this.$refs.retype_password
@@ -67,12 +71,11 @@ export default {
       }
     },
     ...mapActions([
-      'boardProduct'
+      'registProduct'
     ])
   },
   computed: {
     ...mapGetters([
-      'currentUser',
       'regexs'
     ])
   }

@@ -36,8 +36,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'board',
-      component: BoardList
+      name: 'Test',
+      component: Test
     },
     {
       path: '/test',
