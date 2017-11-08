@@ -1,8 +1,8 @@
 {
-  "name": "vue2-admin-lte",
-  "version": "0.4.2",
-  "description": "adminLTE to vuejs v2.x converting project",
-  "author": "devjin0617 <devjin0617@gmail.com>",
+  "name": "cns-front",
+  "version": "0.0.1",
+  "description": "cns-front",
+  "author": "kingseam <kingseam@nate.com>",
   "scripts": {
     "mock": "./node_modules/.bin/json-server ./mock-server/index.js",
     "dev-server": "node build/dev-server.js",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devjin0617/vue2-admin-lte"
+    "url": "git+https://github.com/kingseam/cnsblog-front"
   },
   "keywords": [
     "admin-lte",
@@ -30,9 +30,9 @@
     "front-end"
   ],
   "bugs": {
-    "url": "https://github.com/devjin0617/vue2-admin-lte/issues"
+    "url": "https://github.com/kingseam/cnsblog-front/issues"
   },
-  "hompage": "https://github.com/devjin0617/vue2-admin-lte#readme",
+  "hompage": "http://220.230.124.242",
   "dependencies": {
     "admin-lte": "^2.3.11",
     "axios": "^0.15.3",
