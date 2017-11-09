@@ -27,7 +27,8 @@
     "bootstrap",
     "vue-jquery",
     "vue-bootstrap",
-    "front-end"
+    "front-end",
+    "vuelidate"
   ],
   "bugs": {
     "url": "https://github.com/kingseam/cnsblog-front/issues"
@@ -48,6 +49,7 @@
     "vue": "^2.2.1",
     "vue-router": "^2.3.0",
     "vue2-editor": "^2.0.26",
+    "vuelidate": "^0.6.1",
     "vuex": "^2.2.1"
   },
   "devDependencies": {
