@@ -33,10 +33,6 @@ export const boardProduct = ({ commit }, id) => {
 }
 
 export const registProduct = ({ commit }, user) => {
-  if (user.user_name === '' || user.password === '') {
-    alert('벨리데이션을 어디서 처리해야되나. 흐음.')
-    return false
-  }
   return services.products.put('users', user)
   .then((response) => {
     console.log(response)

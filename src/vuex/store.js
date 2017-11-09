@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-// import VeeValidate from 'vee-validate'
+import Vuelidate from 'vuelidate'
 
 import * as actions from './actions'
 import * as getters from './getters'
 import modules from './modules'
 
 Vue.use(Vuex)
+Vue.use(Vuelidate)
 
 export default new Vuex.Store({
   actions,
