@@ -7,7 +7,12 @@ export default {
           .catch((error) => Promise.reject(error))
   },
   get (uri, request = {}) {
-    return axios.get(`http://220.230.124.242/api/${uri}`, request)
+    console.log(this)
+    return axios.get(`http://220.230.124.242/${uri}`, {
+      headers: {
+        'Authorization': ''
+      }
+    })
           .then((response) => Promise.resolve(response))
           .catch((error) => Promise.reject(error))
   },
@@ -16,7 +21,11 @@ export default {
     comm.version = '1.1.1'
     comm.param = request
     console.log(comm)
-    return axios.put(`http://220.230.124.242/api/${uri}`, comm)
+    return axios.put(`http://220.230.124.242/${uri}`, request, {
+      headers: {
+        'Authorization': 'Bearer TOKEN'
+      }
+    })
           .then((response) => Promise.resolve(response))
           .catch((error) => Promise.reject(error))
   }

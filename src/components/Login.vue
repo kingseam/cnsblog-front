@@ -26,7 +26,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+          <button type="button" class="btn btn-primary btn-block btn-flat" @click="submit">Sign In</button>
         </div>
         <!-- /.col -->
       </div>
@@ -51,7 +51,25 @@
 </template>
 
 <script>
-  export default {
-    name: 'Register'
+import auth from '../auth'
+export default {
+  data () {
+    return {
+      credentials: {
+        username: '',
+        password: ''
+      },
+      error: ''
+    }
+  },
+  methods: {
+    submit () {
+      var credentials = {
+        username: this.credentials.username,
+        password: this.credentials.password
+      }
+      auth.login(this, credentials, 'secretquote')
+    }
   }
+}
 </script>
