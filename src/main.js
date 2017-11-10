@@ -14,9 +14,7 @@ import auth from './auth'
 Vue.prototype.$bus = EventBus
 Vue.prototype.$http = axios
 
-Vue.http.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('id_token');
-
-//Check the user's auth status when the app starts
+Vue.http.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('id_token')
 auth.checkAuth()
 
 /* eslint-disable no-new */
