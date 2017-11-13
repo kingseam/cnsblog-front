@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import Hello from 'components/Hello.vue'
 import Test from 'components/Test.vue'
 import Kjung from 'components/Kjung.vue'
 import Sample from 'components/Sample.vue'
@@ -7,7 +8,6 @@ import Login from 'components/Login.vue'
 import Register from 'components/Register.vue'
 import Editor from 'components/Editor.vue'
 import BoardList from 'components/BoardList.vue'
-import BoardDetail from 'components/BoardDetail.vue'
 import AxiosExample from 'components/AxiosExample.vue'
 import DashboardV1 from 'examples/Dashboard.v1.vue'
 import DashboardV2 from 'examples/Dashboard.v2.vue'
@@ -19,7 +19,7 @@ import WidgetsExample from 'examples/WidgetsExample'
 import APIExample from 'examples/APIExample'
 
 // UI Element Groups
-
+import General from 'pages/ui-elements/General.vue'
 import Icons from 'pages/ui-elements/Icons.vue'
 import Buttons from 'pages/ui-elements/Buttons.vue'
 import Sliders from 'pages/ui-elements/Sliders.vue'
@@ -37,6 +37,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'Hello',
+      component: Hello
+    },
+    {
+      path: '/test',
       name: 'Test',
       component: Test
     },
@@ -59,11 +64,6 @@ export default new Router({
       path: '/board',
       name: 'board',
       component: BoardList
-    },
-    {
-      path: '/board/detail',
-      name: 'boardDetail',
-      component: BoardDetail
     },
     {
       path: '/dashboard/v1',
@@ -104,6 +104,11 @@ export default new Router({
       path: '/examples/api-example',
       name: 'APIExample',
       component: APIExample
+    },
+    {
+      path: '/ui-elements/general',
+      name: 'General',
+      component: General
     },
     {
       path: '/ui-elements/icons',
