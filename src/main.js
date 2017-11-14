@@ -13,6 +13,8 @@ import axios from 'axios'
 Vue.prototype.$bus = EventBus
 Vue.prototype.$http = axios
 
+localStorage.setItem('userName', 'anonymous')
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

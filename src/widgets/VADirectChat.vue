@@ -3,10 +3,10 @@
   <!-- DIRECT CHAT -->
   <div class="box direct-chat" :class="[boxColor, directChatColor]">
     <div class="box-header with-border">
-      <h3 class="box-title">Direct Chat</h3>
+      <h3 class="box-title">{{title}}</h3>
 
       <div class="box-tools pull-right">
-        <span data-toggle="tooltip" title="3 New Messages" class="badge" :class="badgeColor">3</span>
+        <span data-toggle="tooltip" title="New Messages" class="badge" :class="badgeColor">{{badgeCount}}</span>
         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
         </button>
         <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
@@ -90,7 +90,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: 'Type Message ...'
+      default: '웹소켓구성중 ...'
     }
   },
   computed: {

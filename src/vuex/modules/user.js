@@ -1,10 +1,10 @@
 const state = {
   main: {
-    name: 'Angmagun',
-    position: 'Web Developer',
+    name: localStorage.getItem('userName'),
+    position: localStorage.getItem('userName'),
     state: {
       color: '#3c763d',
-      name: '광코딩중'
+      name: '온라인'
     },
     createdAt: new Date()
   }

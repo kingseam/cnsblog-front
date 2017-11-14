@@ -11,21 +11,23 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">{{naviTitle}}</li>
       </ol>
-    </section>
-
-    <section class="content">   
-  	<div class="ad" >
+      
+      <div class="ad" >
       <div class="col-md-3 col-sm6 col-xs-12">
         <va-direct-chat
           theme="primary"
           :talkList="talkList"
           :contacts="contacts"
-          title="Direct Chat"
-          :badgeCount="3"
-          placeholder="내용을 입력하세요..."
+          title="my chat"
+          :badgeCount="0"
+          placeholder="웹소켓 개발중..."
         ></va-direct-chat>
       </div>
     </div>
+    </section>
+
+    <section class="content">   
+  	
       <transition name="page" mode="out-in">
         <router-view></router-view>
       </transition>

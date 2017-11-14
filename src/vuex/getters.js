@@ -6,4 +6,3 @@ export const totalProduct = state => state.products.main
 export const boardList = state => state.products.board
 export const boardDetail = state => state.products.board
 export const registUser = state => state.regist.user
-
