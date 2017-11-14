@@ -1,6 +1,6 @@
 <template>
   <!-- Content Wrapper. Contains page content -->
-  <div id="content-wrap" class="content-wrapper">
+  <div id="content-wrap" class="content-wrapper">    
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -13,19 +13,91 @@
       </ol>
     </section>
 
-    <section class="content">
+    <section class="content">   
+  	<div class="ad" >
+      <div class="col-md-3 col-sm6 col-xs-12">
+        <va-direct-chat
+          theme="primary"
+          :talkList="talkList"
+          :contacts="contacts"
+          title="Direct Chat"
+          :badgeCount="3"
+          placeholder="내용을 입력하세요..."
+        ></va-direct-chat>
+      </div>
+    </div>
       <transition name="page" mode="out-in">
         <router-view></router-view>
       </transition>
     </section>
-    <!-- /.content -->
+    <!-- /.content -->  
   </div>
   <!-- /.content-wrapper -->
 </template>
 
 <script>
+import VADirectChat from './widgets/VADirectChat.vue'
+
 export default {
   name: 'va-content-wrap',
+  data () {
+    return {
+      talkList: [
+        {
+          name: 'Alexander Pierce',
+          date: new Date(),
+          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+          message: `Is this template really for free? That's unbelievable`,
+          isMine: false
+        },
+        {
+          name: 'Sarah Bullock',
+          date: new Date(),
+          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+          message: `You better believe it!`,
+          isMine: true
+        }
+      ],
+      contacts: [
+        {
+          name: 'Count Dracula',
+          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+          latestMessage: 'How have you been? I was...',
+          latestDate: new Date()
+        },
+        {
+          name: 'Sarah Doe',
+          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+          latestMessage: 'I will be waiting for...',
+          latestDate: new Date()
+        },
+        {
+          name: 'Nadia Jolie',
+          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+          latestMessage: `I'll call you back at...`,
+          latestDate: new Date()
+        },
+        {
+          name: 'Nora S. Vans',
+          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+          latestMessage: 'Where is your new...',
+          latestDate: new Date()
+        },
+        {
+          name: 'John K.',
+          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+          latestMessage: 'Can I take a look at...',
+          latestDate: new Date()
+        },
+        {
+          name: 'Kenneth M.',
+          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+          latestMessage: 'Naver mine I found...',
+          latestDate: new Date()
+        }
+      ]
+    }
+  },
   props: {
     naviTitle: {
       type: String,
@@ -34,6 +106,9 @@ export default {
   },
   created () {
 
+  },
+  components: {
+    'va-direct-chat': VADirectChat
   }
 }
 </script>
@@ -44,5 +119,14 @@ export default {
 }
 .page-enter, .page-leave-to {
   opacity: 0;
+}
+.ad {
+  position: absolute;
+  float: right;
+  bottom: 70px;
+  right: auto;
+  top: 100px;
+  width: 100%;
+  z-index: 1000;
 }
 </style>

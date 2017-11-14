@@ -247,7 +247,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat" @click="logoutProduct()">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -263,7 +263,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'va-navibar',
@@ -278,6 +278,11 @@ export default {
       'unreadNotificationsCount',
       'remainTasksCount',
       'currentUser'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'logoutProduct'
     ])
   }
 }
