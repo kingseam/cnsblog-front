@@ -51,7 +51,6 @@
 </template>
 
 <script>
-import auth from '../auth'
 export default {
   data () {
     return {
@@ -60,15 +59,6 @@ export default {
         password: ''
       },
       error: ''
-    }
-  },
-  methods: {
-    submit () {
-      var credentials = {
-        username: this.credentials.username,
-        password: this.credentials.password
-      }
-      auth.login(this, credentials, 'secretquote')
     }
   }
 }
