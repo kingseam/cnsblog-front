@@ -1,5 +1,4 @@
 import * as types from '../mutation-types'
-import router from '../../router'
 
 const state = {
   main: [],
@@ -27,12 +26,12 @@ const mutations = {
   [types.LOGIN_PRODUCT] (state, products) {
     localStorage.setItem('loginYn', 'Y')
     localStorage.setItem('token', products.data.access_token)
-    router.push('/')
+    location.href = '/'
   },
   [types.LOGOUT_PRODUCT] (state) {
     localStorage.setItem('loginYn', 'N')
     localStorage.setItem('token', '')
-    router.push('/')
+    location.href = '/'
   }
 }
 

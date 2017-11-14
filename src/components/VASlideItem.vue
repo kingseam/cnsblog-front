@@ -1,5 +1,6 @@
 <template>
-  <router-link tag="li" v-if="router && router.name" :to="router">
+  <router-link tag="li" v-if="router && router.name && (router.param === undefined || loginYn === router.param.loginYn)" :to="router">
+  
     <a href="#">
       <i :class="icon"></i> <span>{{ name }}</span>
       <span class="pull-right-container" v-show="badge">
@@ -7,6 +8,7 @@
       </span>
     </a>
   </router-link>
+  <!--
   <li :class="getType" v-else>
     {{ isHeader ? name : '' }}
     <a href="#" v-if="!isHeader">
@@ -29,6 +31,7 @@
       </li>
     </ul>
   </li>
+  -->
 </template>
 
 <script>
@@ -66,7 +69,8 @@ export default {
       type: Object,
       default () {
         return {
-          name: ''
+          name: '',
+          param: []
         }
       }
     },
@@ -75,8 +79,13 @@ export default {
       default: ''
     }
   },
+  data: function () {
+    return {
+      loginYn: localStorage.getItem('loginYn')
+    }
+  },
   created () {
-
+    console.log(this.loginYn)
   },
   computed: {
     getType () {

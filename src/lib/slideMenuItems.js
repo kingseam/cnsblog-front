@@ -13,7 +13,25 @@ module.exports = [
       data: 'new'
     },
     router: {
-      name: 'Login'
+      name: 'Login',
+      param: {
+        loginYn: 'N'
+      }
+    }
+  },
+  {
+    type: 'item',
+    icon: 'fa fa-th',
+    name: 'Logout',
+    badge: {
+      type: 'String',
+      data: 'new'
+    },
+    router: {
+      name: 'Logout',
+      param: {
+        loginYn: 'Y'
+      }
     }
   },
   {

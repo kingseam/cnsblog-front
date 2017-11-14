@@ -27,7 +27,6 @@
         <!-- /.col -->
         <div class="col-xs-4">
           <button type="button" class="btn btn-primary btn-block btn-flat" @click="loginProduct(user)">Log In</button>
-          <button type="button" class="btn btn-primary btn-block btn-flat" @click="logoutProduct()">Log out</button>
         </div>
         <!-- /.col -->
       </div>
