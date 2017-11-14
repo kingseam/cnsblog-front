@@ -11,23 +11,23 @@
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">{{naviTitle}}</li>
       </ol>
-      
-      <div class="ad" >
-      <div class="col-md-3 col-sm6 col-xs-12">
-        <va-direct-chat
-          theme="primary"
-          :talkList="talkList"
-          :contacts="contacts"
-          title="my chat"
-          :badgeCount="0"
-          placeholder="웹소켓 개발중..."
-        ></va-direct-chat>
-      </div>
-    </div>
     </section>
 
     <section class="content">   
-  	
+      <va-resizable-box
+        class="fix-right col-md-3 col-sm6 col-xs-12"
+        handles="w"
+        :minWidth="250"
+        :resize="resizeEvent"
+        >
+        <va-direct-chat
+            :talkList="talkList"
+            :contacts="contacts"
+            title="my chat"
+            :badgeCount="0"
+            placeholder="웹소켓 개발중..."
+          ></va-direct-chat>
+      </va-resizable-box>
       <transition name="page" mode="out-in">
         <router-view></router-view>
       </transition>
@@ -39,6 +39,7 @@
 
 <script>
 import VADirectChat from './widgets/VADirectChat.vue'
+import VAResizableBox from './widgets/VAResizableBox.vue'
 
 export default {
   name: 'va-content-wrap',
@@ -110,7 +111,13 @@ export default {
 
   },
   components: {
-    'va-direct-chat': VADirectChat
+    'va-direct-chat': VADirectChat,
+    'va-resizable-box': VAResizableBox
+  },
+  methods: {
+    resizeEvent: function (event, ui) {
+      $('.resizable-box :first').css('height', 'auto')
+    }
   }
 }
 </script>
@@ -122,13 +129,9 @@ export default {
 .page-enter, .page-leave-to {
   opacity: 0;
 }
-.ad {
-  position: absolute;
-  float: right;
-  bottom: 70px;
-  right: auto;
-  top: 100px;
-  width: 100%;
+.fix-right {
+  position: fixed;
+  right: 0;
   z-index: 1000;
 }
 </style>
