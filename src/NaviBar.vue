@@ -15,7 +15,7 @@
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
+      <div class="navbar-custom-menu" v-if="loginYn === 'Y'">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
@@ -267,6 +267,11 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'va-navibar',
+  data: function () {
+    return {
+      loginYn: localStorage.getItem('loginYn')
+    }
+  },
   computed: {
     ...mapGetters([
       'unreadMessagesCount',

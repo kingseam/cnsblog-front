@@ -9,11 +9,11 @@
 
     <form action="../../index2.html" method="post">
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" placeholder="Email">
+        <input v-model.trim="user.user_name" type="email" class="form-control" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input v-model.trim="user.password" type="password" class="form-control" placeholder="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -26,7 +26,8 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="button" class="btn btn-primary btn-block btn-flat" @click="submit">Sign In</button>
+          <button type="button" class="btn btn-primary btn-block btn-flat" @click="loginProduct(user)">Log In</button>
+          <button type="button" class="btn btn-primary btn-block btn-flat" @click="logoutProduct()">Log out</button>
         </div>
         <!-- /.col -->
       </div>
@@ -51,15 +52,22 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
-  data () {
+  data: function () {
     return {
-      credentials: {
-        username: '',
+      user: {
+        user_name: '',
         password: ''
-      },
-      error: ''
+      }
     }
+  },
+  methods: {
+    ...mapActions([
+      'loginProduct',
+      'logoutProduct'
+    ])
   }
 }
 </script>
