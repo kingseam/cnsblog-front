@@ -1,6 +1,5 @@
 <template>
-  <router-link tag="li" v-if="router && router.name && (router.param === undefined || loginYn === router.param.loginYn)" :to="router">
-  
+  <router-link tag="li" v-if="router && router.name && (router.param === undefined || loginYn === router.param.loginYn)" :to="router">  
     <a href="#">
       <i :class="icon"></i> <span>{{ name }}</span>
       <span class="pull-right-container" v-show="badge">
@@ -81,11 +80,10 @@ export default {
   },
   data: function () {
     return {
-      loginYn: localStorage.getItem('loginYn')
+      loginYn: localStorage.getItem('loginYn') === null || localStorage.getItem('loginYn') === undefined ? 'N' : localStorage.getItem('loginYn')
     }
   },
   created () {
-    console.log(this.loginYn)
   },
   computed: {
     getType () {

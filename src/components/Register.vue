@@ -35,7 +35,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <input type="button" class="btn btn-primary btn-block btn-flat" value="Register" @click="$v.user.$invalid ? $v.user.$touch() : registProduct(user)"></button>
+          <button type="button" class="btn btn-primary btn-block btn-flat" value="Register" @click="$v.user.$invalid ? $v.user.$touch() : registProduct(user)">Log In</button>
         </div>
         <!-- /.col -->
       </div>

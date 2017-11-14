@@ -35,7 +35,6 @@ export const boardProduct = ({ commit }, id) => {
 export const registProduct = ({ commit }, user) => {
   return services.products.put('users', user)
   .then((response) => {
-    console.log(response)
     commit(types.REGIST_PRODUCT, response.data)
   })
   .catch((error) => {
