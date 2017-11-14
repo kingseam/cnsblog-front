@@ -10,7 +10,7 @@
   		    <pre>{{boardDetail.contents}}</pre>
   		  </div>
   		  
-  		  <router-link :to="{name: 'board'}" class="btn btn-sm btn-info btn-flat pull-left">목록</router-link>
+  		  <router-link :to="{name: 'Board'}" class="btn btn-sm btn-info btn-flat pull-left">목록</router-link>
   	</div>
 </div>
 </template>

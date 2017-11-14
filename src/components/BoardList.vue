@@ -41,8 +41,7 @@
           </div>
           <!-- /.box-body -->
           <div class="box-footer clearfix">
-            <a href="javascript:void(0)" class="btn btn-sm btn-info btn-flat pull-left">Place New Order</a>
-            <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Orders</a>
+            <router-link class="btn btn-sm btn-info btn-flat pull-right" :to="{name: 'Editor'}">글쓰기</router-link>
           </div>
           <!-- /.box-footer -->
         </div>

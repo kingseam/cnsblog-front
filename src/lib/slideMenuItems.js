@@ -49,29 +49,9 @@ module.exports = [
   {
     type: 'item',
     icon: 'fa fa-th',
-    name: 'Api Test_axios',
-    badge: {
-      type: 'String',
-      data: 'new'
-    },
-    router: {
-      name: 'AxiosExample'
-    }
-  },
-  {
-    type: 'item',
-    icon: 'fa fa-th',
-    name: 'Editor',
-    router: {
-      name: 'editor'
-    }
-  },
-  {
-    type: 'item',
-    icon: 'fa fa-th',
     name: 'BoardList',
     router: {
-      name: 'board'
+      name: 'Board'
     }
   }
 ]

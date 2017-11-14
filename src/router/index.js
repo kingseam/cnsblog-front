@@ -48,7 +48,7 @@ export default new Router({
     },
     {
       path: '/editor',
-      name: 'editor',
+      name: 'Editor',
       component: Editor
     },
     {
@@ -58,7 +58,7 @@ export default new Router({
     },
     {
       path: '/board',
-      name: 'board',
+      name: 'Board',
       component: BoardList
     },
     {
