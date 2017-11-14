@@ -1,7 +1,7 @@
 const state = {
   main: {
-    name: localStorage.getItem('userName'),
-    position: localStorage.getItem('userName'),
+    name: localStorage.getItem('userName') === null || localStorage.getItem('userName') === '' ? '' : localStorage.getItem('userName'),
+    position: localStorage.getItem('userName') === null || localStorage.getItem('userName') === '' ? '' : localStorage.getItem('userName'),
     state: {
       color: '#3c763d',
       name: '온라인'
