@@ -6,7 +6,7 @@
 
   <div class="register-box-body">
     <p class="login-box-msg">Register a new membership</p>
-    <form @submit.prevent="onSubmit">
+    <form>
       <div class="form-group has-feedback" v-bind:class="{ 'form-group--error': $v.user.user_name.$error }">
         <input v-model.trim="user.user_name" type="email" class="form-control" placeholder="example@example.com" @input="$v.user.user_name.$touch()">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -53,51 +53,6 @@
   <!-- /.form-box -->
 </div>
 </template>
-
-<style scoped>
-.form-group--error input, .form-group--error input:focus, .form-group--error input:hover, .form-group--error textarea {
-  border-color: #f79483;
-}
-
-.form-group--error+.form-group_message {
-  display: block;
-  color: #f57f6c;
-}
-
-.form-group_message {
-    font-size: .75rem;
-    line-height: 1;
-    display: none;
-    margin-left: 14px;
-    margin-top: -0.6875rem;
-    margin-bottom: .9375rem;
-}
-
-.form-group--alert, .form-group--error {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-@keyframes shake {
-  10%, 90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-  
-  20%, 80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%, 50%, 70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%, 60% {
-    transform: translate3d(4px, 0, 0);
-  }
-}
-</style>
 
 <script>
 import { mapActions } from 'vuex'
