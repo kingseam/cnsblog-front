@@ -26,5 +26,12 @@ export default {
     }))
           .then((response) => Promise.resolve(response))
           .catch((error) => Promise.reject(error))
+  },
+  tokenCheck (uri, request = {}) {
+    return HTTPS.post(`${uri}`, qs.stringify({
+      'token': localStorage.getItem('token') === null || localStorage.getItem('token') === '' ? '' : localStorage.getItem('token')
+    }))
+         .then((response) => Promise.resolve(response))
+         .catch((error) => Promise.reject(error))
   }
 }

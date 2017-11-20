@@ -33,6 +33,11 @@ const mutations = {
     localStorage.setItem('loginYn', 'N')
     localStorage.setItem('token', '')
     location.href = '/'
+  },
+  [types.CHECK_TOKEN_PRODUCT] (state, response) {
+    localStorage.setItem('userName', 'anonymous')
+    localStorage.setItem('loginYn', 'N')
+    localStorage.setItem('token', '')
   }
 }
 
