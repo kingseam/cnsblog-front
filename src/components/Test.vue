@@ -1,11 +1,6 @@
 <template>
   <div class="hello">
-	 <li v-for="(item, key) in msg">
-	    {{ item }} : {{ key }}
-  	</li>
-	 <li v-for="item in msg" :key="item.userId">
-   		{{ item.userId }} : {{ item.nickNm }}
-  	</li>
+	 로그인 여부 : {{loginYn}} 메인 페이지 입니다.
   </div>
 </template>
 
@@ -15,7 +10,8 @@ export default {
   name: 'test',
   data () {
     return {
-      msg: TestJson
+      msg: TestJson,
+      loginYn: localStorage.getItem('loginYn')
     }
   }
 }

@@ -5,6 +5,7 @@ import Test from 'components/Test.vue'
 import Kjung from 'components/Kjung.vue'
 import Sample from 'components/Sample.vue'
 import Login from 'components/Login.vue'
+import Logout from 'components/Logout.vue'
 import Register from 'components/Register.vue'
 import Editor from 'components/Editor.vue'
 import BoardList from 'components/BoardList.vue'
@@ -52,7 +53,7 @@ export default new Router({
     },
     {
       path: '/editor',
-      name: 'editor',
+      name: 'Editor',
       component: Editor
     },
     {
@@ -62,7 +63,7 @@ export default new Router({
     },
     {
       path: '/board',
-      name: 'board',
+      name: 'Board',
       component: BoardList
     },
     {
@@ -149,6 +150,11 @@ export default new Router({
       path: '/login',
       name: 'Login',
       component: Login
+    },
+    {
+      path: '/logout',
+      name: 'Logout',
+      component: Logout
     },
     {
       path: '/register',

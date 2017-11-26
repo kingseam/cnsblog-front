@@ -15,7 +15,7 @@
         <span class="sr-only">Toggle navigation</span>
       </a>
       <!-- Navbar Right Menu -->
-      <div class="navbar-custom-menu">
+      <div class="navbar-custom-menu" v-if="loginYn === 'Y'">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
           <li class="dropdown messages-menu">
@@ -247,7 +247,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a href="#" class="btn btn-default btn-flat" @click="logoutProduct()">Sign out</a>
                 </div>
               </li>
             </ul>
@@ -263,16 +263,26 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'va-navibar',
+  data: function () {
+    return {
+      loginYn: localStorage.getItem('loginYn')
+    }
+  },
   computed: {
     ...mapGetters([
       'unreadMessagesCount',
       'unreadNotificationsCount',
       'remainTasksCount',
       'currentUser'
+    ])
+  },
+  methods: {
+    ...mapActions([
+      'logoutProduct'
     ])
   }
 }

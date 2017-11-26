@@ -1,6 +1,11 @@
 <template>
-   <div id="app">
+   <div class="box box-info">
      <vue-editor v-model="content"></vue-editor>
+     
+     <div class="box-footer clearfix">
+    	<router-link tag="a" class="btn btn-sm btn-info btn-flat pull-left" :to="{name: 'Board'}">목록</router-link>
+     	<router-link tag="a" class="btn btn-sm btn-info btn-flat pull-right" :to="{name: 'Board'}">작성</router-link>
+     </div>
    </div>
  </template>
 

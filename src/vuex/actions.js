@@ -18,7 +18,7 @@ export const fetchProduct = ({ commit }) => {
 }
 
 export const boardProduct = ({ commit }, id) => {
-  return services.products.get(`api/board/${id}`)
+  return services.products.get(`board/${id}`)
   .then((response) => {
     console.log(response)
     if (response.data.code.code === '0000') {
@@ -33,9 +33,8 @@ export const boardProduct = ({ commit }, id) => {
 }
 
 export const registProduct = ({ commit }, user) => {
-  return services.products.put('api/users', user)
+  return services.products.put('users', user)
   .then((response) => {
-    console.log(response)
     commit(types.REGIST_PRODUCT, response.data)
   })
   .catch((error) => {
@@ -44,12 +43,25 @@ export const registProduct = ({ commit }, user) => {
 }
 
 export const loginProduct = ({ commit }, user) => {
-  return services.products.post('auth/oauth/token', user)
+  return services.products.authPost('oauth/token', user)
   .then((response) => {
-    console.log(response)
-    commit(types.REGIST_PRODUCT, response.data)
+    commit(types.LOGIN_PRODUCT, response)
   })
   .catch((error) => {
     commit(types.ERROR_PRODUCT, error)
+  })
+}
+
+export const logoutProduct = ({ commit }) => {
+  commit(types.LOGOUT_PRODUCT)
+}
+
+export const tokenCheckProduct = ({ commit }, user) => {
+  return services.products.tokenCheck('oauth/check_token')
+  .then((response) => {
+    console.log(response)
+  })
+  .catch((error) => {
+    commit(types.CHECK_TOKEN_PRODUCT, error)
   })
 }

@@ -1,10 +1,10 @@
 const state = {
   main: {
-    name: 'Alexander Pierce',
-    position: 'Web Developer',
+    name: localStorage.getItem('userName') === null || localStorage.getItem('userName') === '' ? 'anonymous' : localStorage.getItem('userName'),
+    position: localStorage.getItem('userName') === null || localStorage.getItem('userName') === '' ? 'anonymous' : localStorage.getItem('userName'),
     state: {
       color: '#3c763d',
-      name: 'Online'
+      name: '온라인'
     },
     createdAt: new Date()
   }
