@@ -53,5 +53,13 @@ module.exports = [
     router: {
       name: 'Board'
     }
+  },
+  {
+    type: 'item',
+    icon: 'fa fa-th',
+    name: 'JihoonBoard',
+    router: {
+      name: 'JihoonVue'
+    }
   }
 ]

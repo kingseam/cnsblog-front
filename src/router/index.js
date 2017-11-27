@@ -18,6 +18,7 @@ import AlertExample from 'examples/AlertExample'
 import ModalExample from 'examples/ModalExample'
 import WidgetsExample from 'examples/WidgetsExample'
 import APIExample from 'examples/APIExample'
+import JihoonVue from 'components/JihoonVue'
 
 // UI Element Groups
 import General from 'pages/ui-elements/General.vue'
@@ -165,6 +166,11 @@ export default new Router({
       path: '/axios-example',
       name: 'AxiosExample',
       component: AxiosExample
+    },
+    {
+      path: '/JihoonVue',
+      name: 'JihoonVue',
+      component: JihoonVue
     }
   ],
   linkActiveClass: 'active'
