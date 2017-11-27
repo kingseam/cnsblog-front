@@ -16,6 +16,7 @@ import VAContentWrap from 'ContentWrap.vue'
 import Modal from './components/Modal.vue'
 import store from './vuex/store.js'
 import slideMenuItems from './lib/slideMenuItems.js'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'app',
@@ -25,6 +26,18 @@ export default {
     }
   },
   created () {
+  },
+  methods: {
+    ...mapActions([
+      'tokenCheckProduct'
+    ])
+  },
+  watch: {
+    '$route': function (from, to) {
+      if (localStorage.getItem('token') !== '') {
+        this.tokenCheckProduct()
+      }
+    }
   },
   components: {
     'va-navibar': VANaviBar,
