@@ -47,56 +47,25 @@ export default {
     return {
       talkList: [
         {
-          name: 'Alexander Pierce',
+          name: '새',
           date: new Date(),
           profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          message: `Is this template really for free? That's unbelievable`,
+          message: `9-5 퇴근한다며?`,
           isMine: false
         },
         {
-          name: 'Sarah Bullock',
+          name: '암',
           date: new Date(),
           profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          message: `You better believe it!`,
+          message: `응, 임금삭감 각`,
           isMine: true
-        }
-      ],
-      contacts: [
-        {
-          name: 'Count Dracula',
-          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          latestMessage: 'How have you been? I was...',
-          latestDate: new Date()
         },
         {
-          name: 'Sarah Doe',
+          name: '새',
+          date: new Date(),
           profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          latestMessage: 'I will be waiting for...',
-          latestDate: new Date()
-        },
-        {
-          name: 'Nadia Jolie',
-          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          latestMessage: `I'll call you back at...`,
-          latestDate: new Date()
-        },
-        {
-          name: 'Nora S. Vans',
-          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          latestMessage: 'Where is your new...',
-          latestDate: new Date()
-        },
-        {
-          name: 'John K.',
-          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          latestMessage: 'Can I take a look at...',
-          latestDate: new Date()
-        },
-        {
-          name: 'Kenneth M.',
-          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          latestMessage: 'Naver mine I found...',
-          latestDate: new Date()
+          message: `랩스로 가야..`,
+          isMine: false
         }
       ]
     }
