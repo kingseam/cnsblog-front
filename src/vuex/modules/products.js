@@ -11,6 +11,8 @@ const mutations = {
     state.main = products
   },
   [types.BOARD_PRODUCT] (state, products) {
+    console.log(state)
+    console.log(products)
     state.board = products.data.result
   },
   [types.BOARD_DETAIL_PRODUCT] (state, products) {
@@ -20,6 +22,8 @@ const mutations = {
     alert(`[${products.code.code}] : ${products.code.message}`)
   },
   [types.ERROR_PRODUCT] (state, products) {
+    console.log(state)
+    console.log(products)
     alert('알 수 없는 오류가 발생하였습니다. 서버 관리자에게 문의하세요.')
   },
   [types.LOGIN_PRODUCT] (state, products) {
@@ -35,9 +39,11 @@ const mutations = {
     location.href = '/'
   },
   [types.CHECK_TOKEN_PRODUCT] (state, response) {
+    alert('Not allow token')
     localStorage.setItem('userName', 'anonymous')
     localStorage.setItem('loginYn', 'N')
     localStorage.setItem('token', '')
+    location.href = '/'
   }
 }
 

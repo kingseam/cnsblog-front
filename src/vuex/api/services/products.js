@@ -8,7 +8,7 @@ export default {
           .catch((error) => Promise.reject(error))
   },
   get (uri, request = {}) {
-    console.log(this)
+    console.log(HTTP.defaults.headers)
     return HTTP.get(`${uri}`, request)
           .then((response) => Promise.resolve(response))
           .catch((error) => Promise.reject(error))

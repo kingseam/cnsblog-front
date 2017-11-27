@@ -18,6 +18,7 @@ export const fetchProduct = ({ commit }) => {
 }
 
 export const boardProduct = ({ commit }, id) => {
+  console.log(localStorage.getItem('token'))
   return services.products.get(`board/${id}`)
   .then((response) => {
     console.log(response)
@@ -28,7 +29,7 @@ export const boardProduct = ({ commit }, id) => {
     }
   })
   .catch((error) => {
-    console.error(error)
+    commit(types.ERROR_PRODUCT, error)
   })
 }
 

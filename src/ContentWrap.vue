@@ -40,7 +40,6 @@
 <script>
 import VADirectChat from './widgets/VADirectChat.vue'
 import VAResizableBox from './widgets/VAResizableBox.vue'
-import { mapActions } from 'vuex'
 
 export default {
   name: 'va-content-wrap',
@@ -108,9 +107,6 @@ export default {
       default: 'default'
     }
   },
-  created () {
-    this.tokenCheckProduct()
-  },
   components: {
     'va-direct-chat': VADirectChat,
     'va-resizable-box': VAResizableBox
@@ -118,10 +114,7 @@ export default {
   methods: {
     resizeEvent: function (event, ui) {
       $('.resizable-box :first').css('height', 'auto')
-    },
-    ...mapActions([
-      'tokenCheckProduct'
-    ])
+    }
   }
 }
 </script>
