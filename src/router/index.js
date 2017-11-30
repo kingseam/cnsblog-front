@@ -68,6 +68,11 @@ export default new Router({
       component: BoardList
     },
     {
+      path: '/board/detail',
+      name: 'boardDetail',
+      component: BoardDetail
+    },
+    {
       path: '/dashboard/v1',
       name: 'DashboardV1',
       component: DashboardV1
