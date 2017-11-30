@@ -22,7 +22,6 @@
         >
         <va-direct-chat
             :talkList="talkList"
-            :contacts="contacts"
             title="my chat"
             :badgeCount="0"
             placeholder="웹소켓 개발중..."
