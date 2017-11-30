@@ -8,7 +8,7 @@
     <p class="login-box-msg">Register a new membership</p>
     <form>
       <div class="form-group has-feedback" v-bind:class="{ 'form-group--error': $v.user.user_name.$error }">
-        <input v-model.trim="user.user_name" type="email" class="form-control" placeholder="example@example.com" @input="$v.user.user_name.$touch()">
+        <input v-model.trim="user.user_name" type="email" class="form-control" placeholder="Email" @input="$v.user.user_name.$touch()">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <span class="form-group_message" v-if="!$v.user.user_name.required">필수 항목입니다.</span>
