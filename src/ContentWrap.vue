@@ -49,21 +49,7 @@ export default {
           name: '새',
           date: new Date(),
           profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          message: `9-5 퇴근한다며?`,
-          isMine: false
-        },
-        {
-          name: '암',
-          date: new Date(),
-          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          message: `응, 임금삭감 각`,
-          isMine: true
-        },
-        {
-          name: '새',
-          date: new Date(),
-          profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-          message: `랩스로 가야..`,
+          message: `test`,
           isMine: false
         }
       ]
