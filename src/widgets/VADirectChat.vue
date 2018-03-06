@@ -164,7 +164,7 @@ export default {
       }
     },
     connect () {
-      this.socket = new SockJS('http://localhost:8080/api/ws')
+      this.socket = new SockJS('http://220.230.124.242/api/ws')
       this.stompClient = Stomp.over(this.socket)
       this.stompClient.connect({}, (frame) => {
         this.connected = true
