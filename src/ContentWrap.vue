@@ -21,7 +21,7 @@
         :resize="resizeEvent"
         >
         <va-direct-chat
-            :talkList="talkList"
+            :talkList="messageList"
             title="my chat"
             :badgeCount="0"
             placeholder="웹소켓 개발중..."
@@ -39,6 +39,7 @@
 <script>
 import VADirectChat from './widgets/VADirectChat.vue'
 import VAResizableBox from './widgets/VAResizableBox.vue'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'va-content-wrap',
@@ -46,7 +47,7 @@ export default {
     return {
       talkList: [
         {
-          name: '새',
+          name: 'angmagun',
           date: new Date(),
           profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
           message: `test`,
@@ -59,7 +60,15 @@ export default {
     naviTitle: {
       type: String,
       default: 'default'
+    },
+    talkList: {
+      type: Array
     }
+  },
+  computed: {
+    ...mapGetters([
+      'messageList'
+    ])
   },
   components: {
     'va-direct-chat': VADirectChat,
@@ -68,7 +77,10 @@ export default {
   methods: {
     resizeEvent: function (event, ui) {
       $('.resizable-box :first').css('height', 'auto')
-    }
+    },
+    ...mapActions([
+      'messageProduct'
+    ])
   }
 }
 </script>

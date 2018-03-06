@@ -3,7 +3,8 @@ import * as types from '../mutation-types'
 const state = {
   main: [],
   board: [],
-  user: []
+  user: [],
+  msg: []
 }
 
 const mutations = {
@@ -44,6 +45,13 @@ const mutations = {
     localStorage.setItem('loginYn', 'N')
     localStorage.setItem('token', '')
     location.href = '/'
+  },
+  [types.MESSAGE_PRODUCT] (state, msg) {
+    console.log('==================')
+    console.log(msg)
+    console.log('==================')
+    console.log(state.msg)
+    state.msg.push(msg)
   }
 }
 

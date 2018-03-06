@@ -66,3 +66,7 @@ export const tokenCheckProduct = ({ commit }, user) => {
     commit(types.CHECK_TOKEN_PRODUCT, error)
   })
 }
+
+export const messageProduct = ({ commit }, msg) => {
+  commit(types.MESSAGE_PRODUCT, msg)
+}

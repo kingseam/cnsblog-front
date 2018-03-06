@@ -50,9 +50,9 @@
     <div class="box-footer">
       <form action="#" method="post">
         <div class="input-group">
-          <input type="text" name="message" :placeholder="placeholder" class="form-control">
+          <input type="text" name="message" :placeholder="placeholder" class="form-control" v-model="send_message">
               <span class="input-group-btn">
-                <button type="button" class="btn btn-warning btn-flat">Send</button>
+                <button type="button" class="btn btn-warning btn-flat"  @click="send(send_message)">Send</button>
               </span>
         </div>
       </form>
@@ -67,9 +67,26 @@
 <script>
 import VADirectChatItem from './VADirectChatItem.vue'
 import VADirectChatContact from './VADirectChatContact.vue'
+import { mapGetters, mapActions } from 'vuex'
+import SockJS from 'sockjs-client'
+import Stomp from 'webstomp-client'
 
 export default {
   name: 'va-direct-chat',
+  data () {
+    return {
+      received_messages: [],
+      send_message: 'abc',
+      connected: false,
+      message: {
+        name: '',
+        date: new Date(),
+        profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
+        message: '',
+        isMine: false
+      }
+    }
+  },
   props: {
     theme: {
       type: String,
@@ -129,10 +146,54 @@ export default {
         default:
           return 'direct-chat-primary'
       }
-    }
+    },
+    ...mapGetters([
+      'messageList'
+    ])
   },
-  created () {
-
+  methods: {
+    send () {
+      console.log('Send message:' + this.send_message)
+      if (this.stompClient && this.stompClient.connected) {
+        this.stompClient.send('/app-receive/from-client', this.send_message, {})
+        console.log(this.messageList)
+        this.message.name = 'angmagun'
+        this.message.message = this.send_message
+        console.log('aaa' + this.message)
+        this.messageProduct(this.message)
+      }
+    },
+    connect () {
+      this.socket = new SockJS('http://localhost:8080/api/ws')
+      this.stompClient = Stomp.over(this.socket)
+      this.stompClient.connect({}, (frame) => {
+        this.connected = true
+        console.log(frame)
+        console.log('123123123' + this.connected)
+        this.stompClient.subscribe('/global-message/tick', (tick) => {
+          console.log('123123123' + tick)
+          this.received_messages.push(tick)
+        })
+      }, (error) => {
+        console.log(error)
+        this.connected = false
+      })
+    },
+    disconnect () {
+      if (this.stompClient) {
+        this.stompClient.disconnect()
+      }
+      this.connected = false
+    },
+    tickleConnection () {
+      this.connected ? this.disconnect() : this.connect()
+    },
+    ...mapActions([
+      'messageProduct'
+    ])
+  },
+  mounted () {
+    this.connect()
   },
   components: {
     'va-direct-chat-item': VADirectChatItem,
