@@ -18,7 +18,7 @@
     <!-- /.box-header -->
     <div class="box-body">
       <!-- Conversations are loaded here -->
-      <div class="direct-chat-messages">
+      <div class="direct-chat-messages" @scroll="handleScroll">
 
         <va-direct-chat-item
           v-for="item in talkList"
@@ -76,7 +76,8 @@ export default {
       name: '',
       received_messages: [],
       send_message: '',
-      connected: false
+      connected: false,
+      receive: []
     }
   },
   props: {
@@ -149,7 +150,22 @@ export default {
       'messageList'
     ])
   },
+  watch: {
+    talkList () {
+      console.log('watch?')
+      var container = this.$el.querySelector('.direct-chat-messages')
+      container.scrollTop = container.scrollHeight
+      console.log(container.scrollHeight)
+    }
+  },
   methods: {
+    handleScroll (e) {
+      var currentScrollPosition = e.srcElement.scrollTop
+      if (currentScrollPosition > this.scrollPosition) {
+        console.log('Scrolling down')
+      }
+      this.scrollPosition = currentScrollPosition
+    },
     send (msg, nm) {
       console.log('Send message:' + this.send_message)
       if (this.stompClient && this.stompClient.connected) {
@@ -161,7 +177,7 @@ export default {
       }
     },
     connect () {
-      this.socket = new SockJS('http://220.230.124.242/api/ws')
+      this.socket = new SockJS('http://220.230.124.242//api/ws')
       this.stompClient = Stomp.over(this.socket)
       this.stompClient.connect({}, (frame) => {
         this.connected = true
@@ -170,6 +186,7 @@ export default {
           console.log(this.name)
           tick.name = this.name
           this.messageProduct(tick)
+          this.receive = tick
         })
       }, (error) => {
         console.log(error)
