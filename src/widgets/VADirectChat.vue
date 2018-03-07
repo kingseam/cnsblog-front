@@ -167,9 +167,9 @@ export default {
       this.scrollPosition = currentScrollPosition
     },
     send (msg, nm) {
-      console.log('Send message:' + this.send_message)
+      console.log('Send message:' + this.send_message + '_' + nm)
       if (this.stompClient && this.stompClient.connected) {
-        this.stompClient.send('/app-receive/from-client', this.send_message, {})
+        this.stompClient.send('/app-receive/from-client', this.send_message + '_' + nm, {})
         console.log('send msg : ' + msg)
         console.log('send msg : ' + nm)
         this.name = nm

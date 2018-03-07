@@ -55,8 +55,8 @@ const mutations = {
       profileImage: '',
       isMine: ''
     }
-    temp.message = tick.body
-    temp.name = tick.name
+    temp.message = tick.body.split('_')[0]
+    temp.name = tick.body.split('_')[1]
     temp.date = new Date()
     temp.profileImage = 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3'
     temp.isMine = false
