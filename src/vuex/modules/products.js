@@ -46,12 +46,22 @@ const mutations = {
     localStorage.setItem('token', '')
     location.href = '/'
   },
-  [types.MESSAGE_PRODUCT] (state, msg) {
-    console.log('==================')
-    console.log(msg)
-    console.log('==================')
+  [types.MESSAGE_PRODUCT] (state, tick) {
+    console.log(tick)
+    var temp = {
+      message: '',
+      name: '',
+      date: '',
+      profileImage: '',
+      isMine: ''
+    }
+    temp.message = tick.body
+    temp.name = tick.name
+    temp.date = new Date()
+    temp.profileImage = 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3'
+    temp.isMine = false
+    state.msg.push(temp)
     console.log(state.msg)
-    state.msg.push(msg)
   }
 }
 

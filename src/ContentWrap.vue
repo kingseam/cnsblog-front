@@ -24,7 +24,7 @@
             :talkList="messageList"
             title="my chat"
             :badgeCount="0"
-            placeholder="웹소켓 개발중..."
+            placeholder="채팅 가능합니다."
           ></va-direct-chat>
       </va-resizable-box>
       <transition name="page" mode="out-in">
@@ -60,9 +60,6 @@ export default {
     naviTitle: {
       type: String,
       default: 'default'
-    },
-    talkList: {
-      type: Array
     }
   },
   computed: {

@@ -48,14 +48,12 @@
     </div>
     <!-- /.box-body -->
     <div class="box-footer">
-      <form action="#" method="post">
         <div class="input-group">
-          <input type="text" name="message" :placeholder="placeholder" class="form-control" v-model="send_message">
+          <input type="text" name="message" :placeholder="placeholder" class="form-control" v-model="send_message" v-on:keyup.enter="send(send_message, currentUser.name)">
               <span class="input-group-btn">
-                <button type="button" class="btn btn-warning btn-flat"  @click="send(send_message)">Send</button>
+                <button type="button" class="btn btn-warning btn-flat" @click="send(send_message, currentUser.name)">Send</button>
               </span>
         </div>
-      </form>
     </div>
     <!-- /.box-footer-->
   </div>
@@ -75,16 +73,10 @@ export default {
   name: 'va-direct-chat',
   data () {
     return {
+      name: '',
       received_messages: [],
-      send_message: 'abc',
-      connected: false,
-      message: {
-        name: '',
-        date: new Date(),
-        profileImage: 'http://cfile9.uf.tistory.com/image/25270C4853F7057D09BFD3',
-        message: '',
-        isMine: false
-      }
+      send_message: '',
+      connected: false
     }
   },
   props: {
@@ -107,10 +99,16 @@ export default {
     },
     placeholder: {
       type: String,
-      default: '웹소켓구성중 ...'
+      default: '채팅 가능합니다.'
     }
   },
   computed: {
+    ...mapGetters([
+      'unreadMessagesCount',
+      'unreadNotificationsCount',
+      'remainTasksCount',
+      'currentUser'
+    ]),
     badgeColor () {
       switch (this.theme) {
         case 'primary':
@@ -152,15 +150,14 @@ export default {
     ])
   },
   methods: {
-    send () {
+    send (msg, nm) {
       console.log('Send message:' + this.send_message)
       if (this.stompClient && this.stompClient.connected) {
         this.stompClient.send('/app-receive/from-client', this.send_message, {})
-        console.log(this.messageList)
-        this.message.name = 'angmagun'
-        this.message.message = this.send_message
-        console.log('aaa' + this.message)
-        this.messageProduct(this.message)
+        console.log('send msg : ' + msg)
+        console.log('send msg : ' + nm)
+        this.name = nm
+        this.send_message = ''
       }
     },
     connect () {
@@ -168,11 +165,11 @@ export default {
       this.stompClient = Stomp.over(this.socket)
       this.stompClient.connect({}, (frame) => {
         this.connected = true
-        console.log(frame)
-        console.log('123123123' + this.connected)
         this.stompClient.subscribe('/global-message/tick', (tick) => {
-          console.log('123123123' + tick)
-          this.received_messages.push(tick)
+          console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+          console.log(this.name)
+          tick.name = this.name
+          this.messageProduct(tick)
         })
       }, (error) => {
         console.log(error)
